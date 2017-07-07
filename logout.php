@@ -1,0 +1,10 @@
+<?php
+	include("database.php");
+	if(!isset($_COOKIE["user"])){
+			header("location:problem.php");
+		}
+		else{
+	setCookie("user","",time()-1);
+	header("location:problem.php");
+		}
+?>

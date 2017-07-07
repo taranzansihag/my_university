@@ -1,0 +1,13 @@
+<?php
+	include("database.php");
+	$sn=0;
+	$name=$_POST["from"];
+	$msg=$_POST["msg"];
+	              $rs=mysql_query("select max(sn) from problem");
+					while($r=mysql_fetch_array($rs)){
+						$sn=$r[0];
+					}
+					$sn=$sn+1;
+	mysql_query("insert into problem values('$sn','$name','university','$msg',1)");
+	header("location:problem.php?succ=1");
+?>
